@@ -26,7 +26,9 @@
       </div>
     </div>
     <div class="index-right">
-      <!--<slide-show :slides="slides" :inv="invTime"></slide-show>-->
+     <!-- <slide-show :slides="slides" :inv="invTime"></slide-show>-->
+     <!--父组件向子组件传值-->
+     <sliderShow :slides="slides" :inv="inv"></sliderShow>
       <div class="index-board-list">
       	<!--:class="{a:true,b:false}" 两个都是动态的-->
       	<!--:class=[{a:true},b]  一个固定的一个是动态的-->
@@ -39,31 +41,48 @@
 	            </div>  
             </div>
       	</div>
-        <!--<div
-        class="index-board-item"
-        v-for="(item, index) in boardList"
-        :class="[{'line-last' : index % 2 !== 0}, 'index-board-' + item.id]">
-          <div class="index-board-item-inner" >
-            <h2>{{ item.title }}</h2>
-            <p>{{ item.description }}</p>
-            <div class="index-board-button">
-              <router-link class="button" :to="{path: 'detail/' + item.toKey}">立即购买</router-link>
-            </div>  
-          </div>-->
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+	import sliderShow from '../components/slideShow.vue'
 	export default{
 		mounted(){
 			//获取新闻列表
 			this.newListData();
 			console.log(this.newList)
 		},
+		components:{
+			sliderShow
+		},
 		data(){
 			return {
+				//图片在vue的data里引入时必须用require,webpack打包时会把此看成一个模块
+				inv:2000,
+				slides: [
+			        {
+			          src: require('../assets/slideShow/pic1.jpg'),
+			          title: 'xxx1',
+			          href: 'detail/analysis'
+			        },
+			        {
+			          src: require('../assets/slideShow/pic2.jpg'),
+			          title: 'xxx2',
+			          href: 'detail/count'
+			        },
+			        {
+			          src: require('../assets/slideShow/pic3.jpg'),
+			          title: 'xxx3',
+			          href: 'http://xxx.xxx.com'
+			        },
+			        {
+			          src: require('../assets/slideShow/pic4.jpg'),
+			          title: 'xxx4',
+			          href: 'detail/forecast'
+			        }
+			      ],
 				newList:[],
 				boardList: [
 			        {
