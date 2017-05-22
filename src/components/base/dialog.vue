@@ -5,6 +5,7 @@
         <div class="dialog-content">
           <p class="dialog-close">x</p>
           <p>111111111111111111111111</p>
+          <h2>sdjlsfdjlsafdj</h2>
         </div>
     </div>
   </div>
