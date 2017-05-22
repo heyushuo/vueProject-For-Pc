@@ -4,7 +4,6 @@
       <div class="dialog-cover"></div>
         <div class="dialog-content">
           <p class="dialog-close">x</p>
-         <!-- <slot>empty1111111111111111</slot>-->
           <p>111111111111111111111111</p>
         </div>
     </div>
@@ -12,27 +11,12 @@
 </template>
 
 <script>
-//export default {
-//props: {
-//  isShow: {
-//    type: Boolean,
-//    default: false
-//  }
-//},
-//data () {
-//  return {
-//    
-//  }
-//},
-//methods: {
-//  closeMyself () {
-//    this.$emit('on-close')
-//  }
-//}
-//}
+export default {
+
+}
 </script>
 
-<style scoped>
+<style scoped="scoped">
 .drop-enter-active {
   transition: all .5s ease;
 }

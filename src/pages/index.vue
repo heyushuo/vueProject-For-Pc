@@ -1,4 +1,5 @@
 <template>
+	<div>
 	<div class="index-wrap">
     <div class="index-left">
       <div class="index-left-block">
@@ -43,16 +44,17 @@
       	</div>
         </div>
       </div>
+      <diaLog></diaLog>
     </div>
   </div>
 </template>
 <script>
+	import diaLog from '../components/base/dialog.vue'
 	import sliderShow from '../components/slideShow.vue'
 	export default{
 		mounted(){
 			//获取新闻列表
 			this.newListData();
-			console.log(this.newList)
 		},
 		components:{
 			sliderShow
