@@ -1,11 +1,10 @@
 <template>
   <div>
-    <div class="dialog-wrap">
+    <div class="dialog-wrap" v-if="isShow" @click="closeMyself">
       <div class="dialog-cover"></div>
         <div class="dialog-content">
-          <p class="dialog-close">x</p>
-          <p>111111111111111111111111</p>
-          <h2>sdjlsfdjlsafdj</h2>
+          <p class="dialog-close" @click="closeMyself">x</p>
+          <slot></slot>
         </div>
     </div>
   </div>
@@ -13,7 +12,18 @@
 
 <script>
 export default {
-
+		props:{
+			isShow:{
+				type:Boolean,
+				dafault:false
+			}
+		},
+		methods:{
+			closeMyself(){
+				//触发父级传到子组件的函数,closeDetail事件
+				this.$emit('onClose')
+			}
+		}
 }
 </script>
 

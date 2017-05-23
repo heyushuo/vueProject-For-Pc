@@ -44,12 +44,11 @@
       	</div>
         </div>
       </div>
-      <diaLog></diaLog>
     </div>
+    <diaLog></diaLog>
   </div>
 </template>
 <script>
-	import diaLog from '../components/base/dialog.vue'
 	import sliderShow from '../components/slideShow.vue'
 	export default{
 		mounted(){

@@ -5,7 +5,7 @@
 				<img src="../assets/logo.png"/>
 				<div class="head-nav">
 					<ul class="nav-list">
-						<li>登录</li>
+						<li @click="isShowLogDialog=!isShowLogDialog">登录</li>
 						<li class="nav-pile">|</li>
 						<li>注册</li>
 						<li class="nav-pile">|</li>
@@ -22,11 +22,24 @@
 		<div class="app-footer">
 			© 2016 科比布兰特
 		</div>
+		<MyDialog :isShow="isShowLogDialog" @onClose="closeDetail()" >登录</MyDialog>
 	</div>
 </template>
 <script>
+	import Dialog from './base/dialog.vue'
 	export default{
 		components:{
+			MyDialog:Dialog
+		},
+		data(){
+			return {
+				isShowLogDialog:false,
+			}
+		},
+		methods:{
+			closeDetail(){
+				this.isShowLogDialog=false;
+			}
 		}
 	}
 </script>
