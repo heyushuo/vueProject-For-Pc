@@ -84,7 +84,8 @@ export default {
         this.errorText = '部分选项未通过'
       }
       else {
-      	this.$emit('has-log')
+      	let data="何玉硕"
+      	this.$emit('hasLog',data)
         /*this.errorText = ''
         this.$http.get('api/login')
         .then((res) => {

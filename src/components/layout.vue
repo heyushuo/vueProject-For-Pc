@@ -5,12 +5,15 @@
 				<img src="../assets/logo.png"/>
 				<div class="head-nav">
 					<ul class="nav-list">
+						<li> {{ userName }}</li>
+						<li v-if="userName!== ''" class="nav-pile">|</li>
+            			<li v-if="userName!== ''" @click="quit">退出</li>
 						<li @click="isShowLogDialog=!isShowLogDialog">
 							登录
 						</li>
 						<li class="nav-pile">|</li>
-						<li @click="isShowRegDialog=!isShowRegDialog">注册</li>
-						<li class="nav-pile">|</li>
+						<li v-if="userName=== ''" @click="isShowRegDialog=!isShowRegDialog">注册</li>
+						<li  v-if="userName=== ''" class="nav-pile">|</li>
 						<li @click="isShowAboutDialog=!isShowAboutDialog">关于</li>
 					</ul>
 				</div>
@@ -25,7 +28,7 @@
 			© 2016 科比布兰特
 		</div>
 		<MyDialog :isShow="isShowLogDialog" @onClose="closeDetail('isShowLogDialog')" >
-			<LogForm></LogForm>
+			<LogForm @hasLog="onSuccessLog"></LogForm>
 		</MyDialog>
 		<MyDialog :isShow="isShowAboutDialog" @onClose="closeDetail('isShowAboutDialog')" >
 			<p>本报告在调研数据的基础上，采用定性与定量相结合的方式深入分析了专车市场发展的驱动因素与阻碍因素、专车市场背后的产业格局、专车企业的竞争格局、用户对专车市场的依赖程度、专车对其他交通工具运力的补充效应等，通过这五个章节的研究反映专车市场的发展态势和面临的问题。报告力求客观、深入、准确地反映中国专车市场发展情况，为政府、企事业单位和社会各界提供决策依据。 </p>
@@ -49,12 +52,22 @@
 			return {
 				isShowLogDialog:false,
 				isShowAboutDialog:false,
-				isShowRegDialog:false
+				isShowRegDialog:false,
+				userName:""
 			}
 		},
 		methods:{
 			closeDetail(arr){
 				this[arr]=false;
+			},
+			onSuccessLog(data){
+				console.log(data)
+				//子组件传过来的参数
+				this.closeDetail('isShowLogDialog');
+				this.userName=data;
+			},
+			quit(){
+				this.userName="";
 			}
 		}
 	}
