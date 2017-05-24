@@ -38,7 +38,10 @@
 	            <h2>{{ item.title }}</h2>
 	            <p>{{ item.description }}</p>
 	            <div class="index-board-button">
-	            	<a class="button" >立即购买</a>
+	            	<router-link class="button" :to="{path:'/detail'}">
+	            		立即购买
+	            	</router-link>
+	            	<!--<a class="button" ></a>-->
 	            </div>  
             </div>
       	</div>
