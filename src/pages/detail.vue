@@ -24,24 +24,25 @@ export default {
     return {
       products: [
         {
+        	//这里的path不能只写自路由count,需要写全/detail/count
           name: '数据统计',
-          path: 'count',
+          path: '/detail/count',
           icon: require('../assets/images/1.png'),
           active: false
         },
         {
           name: '数据预测',
-          path: 'forecast',
+          path: '/detail/forecast',
           active: false
         },
         {
           name: '流量分析',
-          path: 'analysis',
+          path: '/detail/analysis',
           active: false
         },
         {
           name: '广告发布',
-          path: 'publish',
+          path: '/detail/publish',
           active: false
         }
       ],

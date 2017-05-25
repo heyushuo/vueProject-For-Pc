@@ -17,6 +17,10 @@ export default[
 			component:DetailPage,
 			children:[
 				{
+					path:"/",
+					redirect:"/detail/count"
+				},
+				{
 					path: 'analysis',
 					component: DetailAnaPage
 				},
