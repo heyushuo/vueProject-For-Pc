@@ -181,7 +181,7 @@
                   </td>
                   <td>
                       <div class="intro-pic">
-                          <label>软件</label>
+                          <label>软件1</label>
                       </div>
                   </td>
                   <td>
